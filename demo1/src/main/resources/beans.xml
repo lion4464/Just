@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id="myBean" class="com.example.demo.MyBean">
+                <constructor-arg value="Rustam"/>
+                <constructor-arg value="1"/>
+        </bean>
+        <bean id="token" class="com.example.demo.Token" scope="prototype"/>
+
+        <bean id="tokenMachine" class="com.example.demo.TokenMachine" scope="singleton">
+                <lookup-method bean="token" name="generateToken"/>
+        </bean>
+
+</beans>
